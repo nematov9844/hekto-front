@@ -1,12 +1,33 @@
 
 const baseUrl = "https://hekto-api.vercel.app/hekto";
 
-const elHeader = document.querySelector(".header");
 const elHero = document.querySelector(".hero");
 const elfeaturedProducts = document.querySelector(".featuredProducts");
 const elleatestProducts = document.querySelector(".leatestProducts");
 const elRoot = document.querySelector(".localRoot");
 const elTitle = document.querySelector(".title_price")
+
+// Dark mode tugmasi
+document.querySelector('.dark-mode-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
+
+
+const swiper = new Swiper('.swiper-container', {
+  loop: true, 
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  autoplay: {
+    delay: 5000, // 5 seconds delay between slides
+  },
+});
+
 
 export async function getData() {
     const response = await fetch(`${baseUrl}`);
@@ -14,24 +35,75 @@ export async function getData() {
      renderKod(data)
 }
 getData()
+
 function renderKod(data){
     console.log(data);
-elHero.innerHTML = `
-<div class="w-[80%] mx-auto flex justify-between px-5">
-  <div class="flex flex-1 flex-col gap-3 justify-center items-center relative">
-    <img class="absolute top-0 -left-[150px] object-cover h-[250px] max-w-[150px]" src="https://raw.githubusercontent.com/nematov9844/hekto-images/main/hero/lomp-left.png" alt="">
-    <div class="gap-4 flex mx-auto flex-col justify-center items-start">
-      <h1 class="text-fuchsia-600 font-semibold">${data.hero.titleHead}</h1>
-      <h1 class="text-5xl font-bold">${data.hero.titleMain}</h1>
-      <h1 class="text-gray-500">${data.hero.titleFooter}</h1>
-      <button class="bg-[rgba(251,46,134,1)] py-1 px-3 text-white text-xs">${data.hero.heroBtnText}</button>
+    elHero.innerHTML = `
+    <div class="swiper">
+      <div class="swiper-wrapper">
+  
+        <!-- Birinchi slayd -->
+        <div class="swiper-slide">
+          <div class="w-[80%] mx-auto flex justify-between px-5">
+            <div class="flex flex-1 flex-col gap-3 justify-center items-center relative">
+              <img class="absolute top-0 -left-[150px] object-cover h-[250px] max-w-[150px]" src="https://raw.githubusercontent.com/nematov9844/hekto-images/main/hero/lomp-left.png" alt="">
+              <div class="gap-4 flex mx-auto flex-col justify-center items-start">
+                <h1 class="text-fuchsia-600 font-semibold">${data.hero.titleHead}</h1>
+                <h1 class="text-5xl font-bold">${data.hero.titleMain}</h1>
+                <h1 class="text-gray-500">${data.hero.titleFooter}</h1>
+                <button class="bg-[rgba(251,46,134,1)] py-1 px-3 text-white text-xs">${data.hero.heroBtnText}</button>
+              </div>
+            </div>
+            <div class="flex-1">
+              <img src="https://raw.githubusercontent.com/nematov9844/hekto-images/main/hero/hero-right.png" alt="">
+            </div>
+          </div>
+        </div>
+  
+        <!-- Ikkinchi slayd -->
+        <div class="swiper-slide bg-gray-100">
+          <div class="flex flex-col items-center justify-center h-full text-center">
+            <h1 class="text-blue-600 font-bold text-4xl">New Arrivals</h1>
+            <p class="text-gray-500 text-lg mt-2">Discover the latest trends</p>
+            <button class="mt-5 bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white text-lg rounded-lg">Shop Collection</button>
+          </div>
+        </div>
+  
+        <!-- Uchinchi slayd -->
+        <div class="swiper-slide bg-gradient-to-r from-purple-400 to-pink-600">
+          <div class="flex justify-center items-center h-full">
+            <div class="text-white text-center">
+              <h1 class="text-6xl font-extrabold">Limited Edition</h1>
+              <p class="mt-4 text-xl">Don't miss out on our exclusive products</p>
+              <button class="mt-6 bg-white text-purple-700 hover:text-pink-600 py-2 px-6 rounded-lg">Explore Now</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- To'rtinchi slayd -->
+        <div class="swiper-slide bg-white">
+          <div class="flex justify-between items-center px-10">
+            <div class="flex-1 text-left">
+              <h1 class="text-gray-900 font-bold text-5xl">Big Discounts</h1>
+              <p class="text-gray-500 text-lg mt-2">Save up to 50% on selected items</p>
+              <button class="mt-4 bg-green-500 hover:bg-green-700 py-2 px-4 text-white text-lg rounded-lg">Buy Now</button>
+            </div>
+            <div class="flex-1">
+              <img src="https://raw.githubusercontent.com/nematov9844/hekto-images/main/hero/hero-right.png" alt="">
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="swiper-pagination"></div>
+  
+      <div class="swiper-button-next bg-gradient-to-r from-gray-700 to-gray-300 rounded-full overflow-hidden px-6 text-center flex justify-center text-white hover:from-red-500 hover:to-blue-500 hover:text-fuchsia-700 cursor-pointer"></div>
+      <div class="swiper-button-prev bg-gradient-to-r from-gray-700 to-gray-300 rounded-full overflow-hidden px-6 text-center flex justify-center text-white hover:from-red-500 hover:to-blue-500 hover:text-fuchsia-700 cursor-pointer"></div>
     </div>
-  </div>
-  <div class="flex-1">
-    <img src="https://raw.githubusercontent.com/nematov9844/hekto-images/main/hero/hero-right.png" alt="">
-  </div>
-</div>
-`;
+  `;
+  
+
 let titleFeat = document.createElement("div");
 titleFeat.innerHTML = `
   <h1 class="font-bold text-4xl text-center">${data.featuredProducts.title}</h1>
@@ -161,5 +233,20 @@ document.querySelector(".specialOfferBtn").addEventListener("click", () => {
     `;
   });
 });
+const swiper = new Swiper('.swiper', {
+  loop: true, // Karuselni qaytarilish uchun
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  autoplay: {
+    delay: 5000, // Slaydlarni avtomatik almashtirish
+  },
+});
+
 }
 

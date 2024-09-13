@@ -1,66 +1,78 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    
-    <header class="bg-fuchsia-600 max-w-[1920px] mx-auto">
-        <nav class=" text-white py-3 px-4 max-w-[1177px] mx-auto">
-            <div class="w-[60%] ml-auto flex justify-between">
 
-            <div class="flex gap-4">
-                <p><i class="fa-solid fa-envelope"></i> mhhasanul@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i> (12345)67890</p>
-            </div>
-            <div class="flex gap-4">
-                <select class="text-black">
-                    <option value="ENG">ENG</option>
-                    <option value="UZ">UZ</option>
-                    <option value="RU">RU</option>
-                </select>
-                <select class="text-black">
-                    <option value="USD">USD</option>
-                    <option value="RUB">RUB</option>
-                    <option value="UZS">UZS</option>
-                </select>
-                <p>Login <i class="fa-regular fa-user"></i></p>
-                <p>Wishlist <i class="fa-regular fa-heart"></i></p>
-                <p><i class="fa-solid fa-cart-shopping"></i></p>
-            </div>
-        </div>
-        </nav>
-        
-    </header>
-    <header class="flex max-w-[1177px] w-full mx-auto mt-5">
-        <nav class="flex justify-between w-full">
-            <div class="flex w-1/2 gap-3 items-end">
-            <h1 class="text-4xl font-bold ">Hekto</h1>
-            <ul class="flex items-end gap-4">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Pages</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Blog </a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            </div>
-            <div class="w-1/2 flex justify-end">
-                <div class="w-1/2 flex border border-gray-400">
-                    <input type="text" class="w-full px-4 outline-none" placeholder="Enter your text">
-                    <button class="py-1 px-3 bg-pink-600 text-white"><i class="fa-solid fa-magnifying-glass"></i></button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+</head>
+
+<body class="dark">
+    <header class="bg-fuchsia-600 text-white dark:bg-gray-800">
+        <nav class="py-3 px-4">
+            <div class="flex justify-between">
+                <div class="flex gap-4">
+                    <p><i class="fa-solid fa-envelope"></i> mhhasanul@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> (12345)67890</p>
+                </div>
+                <div class="flex gap-4">
+                    <select class="text-black dark:text-white">
+                        <option value="ENG">ENG</option>
+                        <option value="UZ">UZ</option>
+                        <option value="RU">RU</option>
+                    </select>
+                    <select class="text-black dark:text-white">
+                        <option value="USD">USD</option>
+                        <option value="RUB">RUB</option>
+                        <option value="UZS">UZS</option>
+                    </select>
+                    <p>Login <i class="fa-regular fa-user"></i></p>
+                    <p>Wishlist <i class="fa-regular fa-heart"></i></p>
+                    <p><i class="fa-solid fa-cart-shopping"></i></p>
                 </div>
             </div>
-                    </nav>
+        </nav>
     </header>
-    <main class="max-w-[1920px] mx-auto">
-        <div class="max-w-[1920px] mx-auto hero bg-[rgba(242,240,255,1)]"></div>
-        <div class="max-w-[1920px] featuredProducts w-full"></div>
-        <div class="max-w-[1920px] leatestProducts py-5  w-full "></div>
+    
+    <header class="flex mt-5">
+        <nav class="flex justify-between w-full">
+            <div class="flex w-1/2 gap-3 items-end">
+                <h1 class="text-4xl font-bold">Hekto</h1>
+                <ul class="flex items-end gap-4">
+                    <li><a href="#" class="text-gray-900 dark:text-gray-300">Home</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-gray-300">Pages</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-gray-300">Products</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-gray-300">Blog</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-gray-300">Shop</a></li>
+                    <li><a href="#" class="text-gray-900 dark:text-gray-300">Contact</a></li>
+                </ul>
+            </div>
+            <div class="w-1/2 flex justify-end">
+                <div class="flex border border-gray-400 dark:border-gray-600">
+                    <input type="text" class="w-full px-4 outline-none bg-white dark:bg-gray-700 text-black dark:text-white" placeholder="Enter your text">
+                    <button class="py-1 px-3 bg-pink-600 text-white dark:bg-pink-800"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="bg-white dark:bg-gray-900">
+        <div class="hero">
+
+        </div>
+        <button class="dark-mode-toggle bg-red-500 fixed text-black py-1 px-4 top-0 right-7">Toggle Dark Mode</button>
+        <div class="featuredProducts"></div>
+        <div class="leatestProducts py-5"></div>
     </main>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script type="module" src="./app.js"></script>
 </body>
+
 </html>
